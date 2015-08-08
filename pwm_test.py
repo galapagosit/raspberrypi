@@ -1,4 +1,4 @@
-
+import random
 import RPi.GPIO as GPIO
 from time import sleep
 
@@ -7,9 +7,12 @@ dc_range_up = 1
 dc_range_down = 1
 
 def my_callback(channel):
+    global dc_range_up
+    global dc_range_down
     if channel == 24:
-        global dc_range_up = random.randint(1, 20)
-        global dc_range_down = random.randint(1, 20)
+        print('switch range!!')
+        dc_range_up = random.randint(1, 20)
+        dc_range_down = random.randint(1, 20)
 
 
 GPIO.setmode(GPIO.BCM)
